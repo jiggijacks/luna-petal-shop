@@ -21,26 +21,12 @@
 <div class="overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Shopping bag"><aside class="drawer"><div class="drawer-head"><h2>Your bag</h2><button class="close" id="closeCart" aria-label="Close bag">×</button></div><div id="cartItems"></div><div class="cart-total"><span>Subtotal</span><span id="subtotal">₦0</span></div><p class="tiny">Prices are confirmed by Luna Petal before your order is finalized. Delivery fees, if any, will also be confirmed on WhatsApp.</p><form class="checkout-fields" id="checkout"><input id="customerName" placeholder="Your name" required><input id="customerPhone" type="tel" placeholder="Your phone number" required><input id="deliveryArea" placeholder="Delivery area / address" required><textarea id="orderNote" placeholder="Any notes? (optional)"></textarea><button class="primary" type="submit">Send order on WhatsApp ↗</button><p class="tiny">This opens WhatsApp with your order details ready to send. No payment is taken on this website.</p></form></aside></div>
 <script>
 const products = [
-{id:'vivon-butter',name:'VIVON Exfoliating Body Butter',category:'Treatments',desc:'Body butter for your body-care routine.',image:'shelsl0ve_15853e5d61324f3b915310fc3b27018b.jpg',price:null},
-{id:'vivon-lotion',name:'VIVON Orange C Body Lotion',category:'Moisturisers',desc:'Orange C body lotion.',image:'shelsl0ve_15853e5d61324f3b915310fc3b27018b.jpg',price:null},
-{id:'st-ives',name:'St. Ives Hydrating Body Lotion',category:'Moisturisers',desc:'Vitamin E & avocado.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'dr-teals',name:'Dr Teal’s Body Wash',category:'Bath & fragrance',desc:'Body wash with pure Epsom salt.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'nivea-soft',name:'NIVEA Soft Moisturiser',category:'Moisturisers',desc:'Refreshing moisturising care.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'medix-vitamin-c',name:'Medix 5.5 Vitamin C + Turmeric',category:'Treatments',desc:'Body treatment cream · 444 mL.',image:'shelsl0ve_207c22d3ed0d4831bb013dabe216a050.jpg',price:null},
+{id:'vivon-set',name:'VIVON Body Butter & Orange C Lotion',category:'Body care',desc:'VIVON body butter and Orange C body lotion set.',image:'shelsl0ve_15853e5d61324f3b915310fc3b27018b.jpg',price:null},
+{id:'body-care-edit',name:'Everyday Body-Care Essentials',category:'Body care',desc:'A curated mix of body lotion, body wash, sunscreen, oils and fragrance.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
+{id:'medix-vitamin-c',name:'Medix 5.5 Vitamin C + Turmeric',category:'Treatments',desc:'Vitamin C + turmeric body treatment cream.',image:'shelsl0ve_207c22d3ed0d4831bb013dabe216a050.jpg',price:null},
 {id:'eos-lotion',name:'eos Shea Better Body Lotion',category:'Moisturisers',desc:'Pomegranate raspberry · 473 mL.',image:'shelsl0ve_a8ad188f56a34f7280b96dabc833f89c.jpg',price:null},
-{id:'dove-glow',name:'Dove Body-Care Favourites',category:'Body care',desc:'Explore selected Dove body-care essentials.',image:'shelsl0ve_6711ecb4d3474c09a8389de416d21af9.jpg',price:null},
-{id:'dove-body-wash',name:'Dove Cherry & Chia Milk Body Wash',category:'Bath & fragrance',desc:'Dove body wash with a cherry-inspired scent.',image:'shelsl0ve_6711ecb4d3474c09a8389de416d21af9.jpg',price:null},
-{id:'dove-body-lotion',name:'Dove Body Love Barrier Repair',category:'Moisturisers',desc:'Body moisturising care.',image:'shelsl0ve_6711ecb4d3474c09a8389de416d21af9.jpg',price:null},
-{id:'dove-body-polish',name:'Dove Exfoliating Body Polish',category:'Treatments',desc:'Body polish with pomegranate seeds and shea butter.',image:'shelsl0ve_6711ecb4d3474c09a8389de416d21af9.jpg',price:null},
-{id:'dove-pink-soap',name:'Dove Pink Rosa Beauty Bar',category:'Body care',desc:'Dove pink beauty bar.',image:'shelsl0ve_6711ecb4d3474c09a8389de416d21af9.jpg',price:null},
-{id:'vaseline-body-oil',name:'Vaseline Intensive Care Body Oil',category:'Moisturisers',desc:'Body oil for your skincare routine.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'banana-boat-spray',name:'Banana Boat Sunscreen Spray',category:'Body care',desc:'Sun-care spray. Confirm exact variant and SPF before ordering.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'garnier-vitamin-c',name:'Garnier Vitamin C Daily UV',category:'Treatments',desc:'Vitamin C daily UV product. Confirm exact variant before ordering.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'burts-bees-oil',name:'Burt’s Bees Body Oil',category:'Moisturisers',desc:'Body oil. Confirm exact product variant before ordering.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'zaron-lotion',name:'Skin by Zaron Vitamin C Body Lotion',category:'Moisturisers',desc:'Vitamin C brightening / moisturising lotion · 500 mL.',image:'shelsl0ve_0890f947e66b4b3e99dc26db436abaa3.jpg',price:null},
-{id:'face-mask',name:'Manuka Honey + Collagen Sheet Mask',category:'Treatments',desc:'Bamboo fibre sheet face mask.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'vanilla-body-oil',name:'Vanilla Body Oil',category:'Bath & fragrance',desc:'A fragrant addition to your self-care routine.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null},
-{id:'femme-fragrance',name:'Femme Eau de Toilette',category:'Bath & fragrance',desc:'Eau de toilette · 90 mL.',image:'shelsl0ve_59dbef2157924b7fadedd288cf4b6bbba.jpg',price:null}
+{id:'dove-body-care',name:'Dove Body-Care Collection',category:'Body care',desc:'A selection of Dove body-care products pictured together.',image:'shelsl0ve_6711ecb4d3474c09a8389de416d21af9.jpg',price:null},
+{id:'zaron-lotion',name:'Skin by Zaron Vitamin C Body Lotion',category:'Moisturisers',desc:'Vitamin C brightening and moisturising body lotion.',image:'shelsl0ve_0890f947e66b4b3e99dc26db436abaa3.jpg',price:null}
 ];
 let activeFilter='All', cart={};
 const fmt=n=>new Intl.NumberFormat('en-NG',{style:'currency',currency:'NGN',maximumFractionDigits:0}).format(n);
